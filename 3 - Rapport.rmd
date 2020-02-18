@@ -1,0 +1,71 @@
+---
+title: "3 - Rapport"
+output: word_document
+---
+
+# Lecture des données
+```{r}
+x_matrix <- read.csv("CSV/generated/dep-e-t-format.csv", header = T, sep = ";", row.names = 1)
+```
+
+# Informations basiques
+## Résumé
+```{r}
+summary(x_matrix)
+```
+## Covariance
+```{r}
+cov(x_matrix)
+```
+## Nombre de colonne
+```{r}
+ncol(x_matrix)
+```
+## Nombre de ligne
+```{r}
+nrow(x_matrix)
+```
+
+#Données centrées réduites
+
+```{r}
+centree_reduite <- scale(x_matrix, center = T, scale = T);
+```
+
+#Analyse en composante principale
+
+## Valeurs propres
+```{r}
+propres <- eigen(cor(centree_reduite));
+valeursPropres <- propres$values;
+vecteursPropres <- propres$vectors;
+```
+
+## Graphique des valeurs propres (éboulis et coude)
+```{r}
+plot(1:length(valeursPropres), valeursPropres, type = "b");
+```
+
+## Composantes principales
+```{r}
+data_acp <- centree_reduite %*% vecteursPropres;
+composante_principale_1 <- data_acp[, 1];
+composante_principale_2 <- data_acp[, 2];
+```
+
+## Cercle de correlation
+Calcule de la correlation entre chaque variable et les composantes principales
+```{r}
+cor1 <- cor(composante_principale_1,centree_reduite);
+cor2 <- cor(composante_principale_2,centree_reduite);
+plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
+abline(h = 0, v = 0)
+text(cor1, cor2, labels = colnames(data))
+```
+
+## Graphe 2D
+```{r}
+plot(data_acp[, 1], data_acp[, 2])
+text(data_acp[, 1], data_acp[, 2], labels = rownames(data))
+abline(h = 0, v = 0)
+```
