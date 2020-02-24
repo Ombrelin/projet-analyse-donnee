@@ -7,16 +7,6 @@ output: word_document
 ```{r}
 x_matrix <- read.csv("CSV/generated/dep-e-t-format.csv", header = T, sep = ";", row.names = 1)
 ```
-
-# Informations basiques
-## Résumé
-```{r}
-summary(x_matrix)
-```
-## Covariance
-```{r}
-cov(x_matrix)
-```
 ## Nombre de colonne
 ```{r}
 ncol(x_matrix)
@@ -24,6 +14,21 @@ ncol(x_matrix)
 ## Nombre de ligne
 ```{r}
 nrow(x_matrix)
+```
+## Affichage des 10 premières lignes
+
+```{r}
+x_matrix[1:10,1:2]
+```
+
+# Informations basiques
+## Résumé (pour uniquement 2 colonnes)
+```{r}
+summary(x_matrix[,1:2])
+```
+## Covariance (pour uniquement 2 colonnes)
+```{r}
+cov(x_matrix[,1:2])
 ```
 
 #Données centrées réduites
