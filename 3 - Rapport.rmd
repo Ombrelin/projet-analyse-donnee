@@ -31,6 +31,16 @@ summary(x_matrix[,1:2])
 cov(x_matrix[,1:2])
 ```
 
+## Variance (pour uniquement 2 colonnes)
+```{r}
+var(x_matrix[,1:2]);
+```
+
+## Correlation (pour uniquement 2 colonnes)
+```{r}
+cor(x_matrix[,1:2])
+```
+
 # Données centrées réduites
 
 ```{r}

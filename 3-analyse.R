@@ -15,14 +15,10 @@ x_matrix <- read.csv("data.csv", header = T, sep = ";", row.names = 1); # parse 
 message("Summary")
 summary(x_matrix); # summary
 
-message("Variance")
-var(x_matrix); # variance
+
 
 message("Covariance")
 print(cov(x_matrix)); # covariance
-
-message("Correlation")
-print(cor(x_matrix)); # correlation
 
 message("Columns : "); # number of columns
 ncol(x_matrix)
