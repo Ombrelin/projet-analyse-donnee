@@ -1,5 +1,5 @@
 ---
-title: "3 - Rapport"
+title: "3-Rapport"
 output: word_document
 ---
 
@@ -15,7 +15,7 @@ ncol(x_matrix)
 ```{r}
 nrow(x_matrix)
 ```
-## Affichage des 10 premières lignes
+## Affichage des 10 premières lignes (pour uniquement 2 colonnes)
 
 ```{r}
 x_matrix[1:10,1:2]
@@ -31,13 +31,13 @@ summary(x_matrix[,1:2])
 cov(x_matrix[,1:2])
 ```
 
-#Données centrées réduites
+# Données centrées réduites
 
 ```{r}
 centree_reduite <- scale(x_matrix, center = T, scale = T);
 ```
 
-#Analyse en composante principale
+# Analyse en composante principale
 
 ## Valeurs propres
 ```{r}
