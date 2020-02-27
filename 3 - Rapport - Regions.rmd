@@ -1,11 +1,11 @@
 ---
-title: "3-Rapport"
+title: "3-Rapport-Regions"
 output: word_document
 ---
 
 # Lecture des données
 ```{r}
-x_matrix <- read.csv("CSV/generated/dep-e-t-format.csv", header = T, sep = ";", row.names = 1)
+x_matrix <- read.csv("CSV/generated/reg-e-t-format.csv", header = T, sep = ";", row.names = 1)
 ```
 ## Nombre de colonne
 ```{r}
@@ -47,6 +47,24 @@ cor(x_matrix[,1:2])
 centree_reduite <- scale(x_matrix, center = T, scale = T);
 ```
 
+```{r}
+summary(centree_reduite[,1:2])
+```
+## Covariance (pour uniquement 2 colonnes)
+```{r}
+cov(centree_reduite[,1:2])
+```
+
+## Variance (pour uniquement 2 colonnes)
+```{r}
+var(centree_reduite[,1:2]);
+```
+
+## Correlation (pour uniquement 2 colonnes)
+```{r}
+cor(centree_reduite[,1:2])
+```
+
 # Analyse en composante principale
 
 ## Valeurs propres
@@ -75,12 +93,12 @@ cor1 <- cor(composante_principale_1,centree_reduite);
 cor2 <- cor(composante_principale_2,centree_reduite);
 plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
-text(cor1, cor2, labels = colnames(data))
+text(cor1, cor2, labels = colnames(x_matrix))
 ```
 
 ## Graphe 2D
 ```{r}
 plot(data_acp[, 1], data_acp[, 2])
-text(data_acp[, 1], data_acp[, 2], labels = rownames(data))
+text(data_acp[, 1], data_acp[, 2], labels = rownames(data_acp))
 abline(h = 0, v = 0)
 ```

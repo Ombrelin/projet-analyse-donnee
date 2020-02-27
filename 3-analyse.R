@@ -62,12 +62,17 @@ cor2 <- cor(composante_principale_2,centree_reduite);
 png(filename = "cercle_de_correlation.png"); # start printing plot to png image
 plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
-text(cor1, cor2, labels = colnames(data))
+text(cor1, cor2, labels = colnames(data_acp))
 dev.off(); # end printing
+
+# Graphe +/-
+
+tableauplusmoins <- cbind(composante_principale_1, composante_principale_2);
+tableauplusmoins;
 
 # Graphe 2D
 png(filename = "graphe2D.png"); # start printing plot to png image
-plot(data_acp[, 1], data_acp[, 2])
-text(data_acp[, 1], data_acp[, 2], labels = rownames(data))
+plot(composante_principale_1, composante_principale_2)
+text(composante_principale_1, composante_principale_2, labels = rownames(data_acp))
 abline(h = 0, v = 0)
 dev.off(); # end printing
