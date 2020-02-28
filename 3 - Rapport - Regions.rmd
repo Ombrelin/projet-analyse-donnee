@@ -95,15 +95,16 @@ plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
 text(cor1, cor2, labels = colnames(x_matrix))
 ```
-Dans un premier temps on peut dire que la plupart des variable étant proche du cercle, elles sont bien représentées par l'ACP.
-On remarque temps que toutes la variables sont fortement négativement corrélées avec la composante principales 1.
+Dans un premier temps on peut dire que la plupart des variable sont proche du cercle, elles sont ainsi bien représentées par l'ACP.
+On remarque que toutes la variables sont fortement corrélées négativement avec la composante principale 1.
 
-Etant donné que l'on a qu'une seul groupe de variables pour la composante principale 1 on ne peut que l'interpréter comme le nombre de personne employées.
+Etant donné que l'on a qu'un seul groupe de variable pour la composante principale 1 on peut l'interpréter comme le nombre de personne employées.
 
-De plus, on a deux groupes de variables. Le premier (*Occitanie*, *Corse*, *DOM*, *Cote d'Azure*, *Provence*, *Auvergne - Rhones Alpes*, *Nouvelle Aquitaine*, *Ile de France*, *Bretagne*, *Normandie*) qui sont positivement correlées à la composante principale 2.
-L'autre groupe (*Haut de France*, *Bourgogne - Franche Comté*, *Grand-Est*, *Centre Val de Loire*) qui sont négativement corrélées avec la composante principale 2.
+De plus, on a deux groupes de variables : 
+- Le premier (*Occitanie*, *Corse*, *DOM*, *Cote d'Azure*, *Provence*, *Auvergne - Rhones Alpes*, *Nouvelle Aquitaine*, *Ile de France*, *Bretagne*, *Normandie*) positivement correlé à la composante principale 2.
+- Le second (*Haut de France*, *Bourgogne - Franche Comté*, *Grand-Est*, *Centre Val de Loire*) négativement corrélé avec la composante principale 2.
 
-On donc interpréter la composante principale 2 comme **la population de la région**
+On peut donc interpréter la composante principale 2 comme **la population de la région**
 
 
 ## Graphe 2D
