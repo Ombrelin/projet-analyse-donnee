@@ -114,7 +114,7 @@ plot(data_acp[, 1], data_acp[, 2])
 text(data_acp[, 1], data_acp[, 2], labels = rownames(data_acp))
 abline(h = 0, v = 0)
 ```
-L'observation de ce graphique du nuage des individus, nous pouvons déterminer quatres groupes d'années :
+L'observation de ce graphique du nuage des individus, nous permet de déterminer quatres groupes d'années :
 - Le groupe 1 : Les années 1992, 1993, 1994, 1995, 1996, 1997
 
 Ce groupe présente des valeurs relativement élevées dans la composante principale 2 et des valeurs plus faibles dans la composante principale 1.
