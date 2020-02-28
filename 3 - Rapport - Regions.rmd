@@ -115,14 +115,11 @@ abline(h = 0, v = 0)
 ```
 L'observation de ce graphique du nuage des individus, nous permet de déterminer trois groupes d'années :
 
-- Les années 1990 : valeurs très élevées pour la composante principale 1, valeur faiblement élevées pour la composante principale 2
+- Les années 1990 :
+Ce groupe nous permet d'observer un grand nombre d'emploi en France et légèrement plus dans les régions peuplées.
 
-On peut en conclure que durant ces années, il y avait plus d'emploi en france et légèrement plus dans les régions peuplées.
+- Les années 2000 :
+Ce groupe nous permet d'observer un faible nombre d'emploi en France et encore moins dans les regions peuplées.
 
-- Les années 2000 : valeurs faibles pour les deux composantes principales
-
-On peut en conclure que durant ces années, il y avait moins d'emplois en France et encore moins dans les régions peuplées.
-
-- Les années 2010 : valeurs très faibles pour la composante principale 1, mais très elevées sur la composante principale 2
-
-On peut en conclure que durant ces années, il y avait moins d'emplois en France mais plus d'emplois dans les régions peuplées.
+- Les années 2010 : 
+Ce groupe nous permet d'observer un faible nombre d'emploi en France mais plus d'emplois dans les régions peuplées.
