@@ -99,6 +99,7 @@ plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
 text(cor1, cor2, labels = colnames(x_matrix))
 ```
+
 Dans un premier temps on peut dire que la plupart des variable étant proche du cercle, elles sont bien représentées par l'ACP.
 On observe que nos deux variables sont fortement corrélées à notre première composante principale.
 Cependant, on peut également constater que la variable *homme* est négativement corrélée à la seconde composante princpale, et que la variable *femme* est quand à elle légerement corrélée à cette dernière.
@@ -114,6 +115,7 @@ plot(data_acp[, 1], data_acp[, 2])
 text(data_acp[, 1], data_acp[, 2], labels = rownames(data_acp))
 abline(h = 0, v = 0)
 ```
+
 L'observation de ce graphique du nuage des individus, nous permet de déterminer quatres groupes d'années :
 - Le groupe 1 : Les années 1992, 1993, 1994, 1995, 1996, 1997
 
