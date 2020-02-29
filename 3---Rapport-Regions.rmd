@@ -1,0 +1,125 @@
+---
+title: "3-Rapport-Regions"
+output: word_document
+---
+
+# Lecture des données
+```{r}
+x_matrix <- read.csv("CSV/generated/reg-e-t-format.csv", header = T, sep = ";", row.names = 1)
+```
+## Nombre de colonne
+```{r}
+ncol(x_matrix)
+```
+## Nombre de ligne
+```{r}
+nrow(x_matrix)
+```
+## Affichage des 10 premières lignes (pour uniquement 2 colonnes)
+
+```{r}
+x_matrix[1:10,1:2]
+```
+
+# Informations basiques
+## Résumé (pour uniquement 2 colonnes)
+```{r}
+summary(x_matrix[,1:2])
+```
+## Covariance (pour uniquement 2 colonnes)
+```{r}
+cov(x_matrix[,1:2])
+```
+
+## Variance (pour uniquement 2 colonnes)
+```{r}
+var(x_matrix[,1:2]);
+```
+
+## Correlation (pour uniquement 2 colonnes)
+```{r}
+cor(x_matrix[,1:2])
+```
+
+# Données centrées réduites
+
+```{r}
+centree_reduite <- scale(x_matrix, center = T, scale = T);
+```
+
+```{r}
+summary(centree_reduite[,1:2])
+```
+## Covariance (pour uniquement 2 colonnes)
+```{r}
+cov(centree_reduite[,1:2])
+```
+
+## Variance (pour uniquement 2 colonnes)
+```{r}
+var(centree_reduite[,1:2]);
+```
+
+## Correlation (pour uniquement 2 colonnes)
+```{r}
+cor(centree_reduite[,1:2])
+```
+
+# Analyse en composante principale
+
+## Valeurs propres
+```{r}
+propres <- eigen(cor(centree_reduite));
+valeursPropres <- propres$values;
+vecteursPropres <- propres$vectors;
+```
+
+## Graphique des valeurs propres (éboulis et coude)
+```{r}
+plot(1:length(valeursPropres), valeursPropres, type = "b");
+```
+
+## Composantes principales
+```{r}
+data_acp <- centree_reduite %*% vecteursPropres;
+composante_principale_1 <- data_acp[, 1];
+composante_principale_2 <- data_acp[, 2];
+```
+
+## Cercle de correlation
+Calcule de la correlation entre chaque variable et les composantes principales
+```{r}
+cor1 <- cor(composante_principale_1,centree_reduite);
+cor2 <- cor(composante_principale_2,centree_reduite);
+plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
+abline(h = 0, v = 0)
+text(cor1, cor2, labels = colnames(x_matrix))
+```
+Dans un premier temps on peut dire que la plupart des variable sont proche du cercle, elles sont ainsi bien représentées par l'ACP.
+On remarque que toutes la variables sont fortement corrélées négativement avec la composante principale 1.
+
+Etant donné que l'on a qu'un seul groupe de variable pour la composante principale 1 on peut l'interpréter comme le nombre de personne employées.
+
+De plus, on a deux groupes de variables : 
+- Le premier (*Occitanie*, *Corse*, *DOM*, *Cote d'Azure*, *Provence*, *Auvergne - Rhones Alpes*, *Nouvelle Aquitaine*, *Ile de France*, *Bretagne*, *Normandie*) positivement correlé à la composante principale 2.
+- Le second (*Haut de France*, *Bourgogne - Franche Comté*, *Grand-Est*, *Centre Val de Loire*) négativement corrélé avec la composante principale 2.
+
+On peut donc interpréter la composante principale 2 comme **la population de la région**
+
+
+## Graphe 2D
+```{r}
+plot(data_acp[, 1], data_acp[, 2])
+text(data_acp[, 1], data_acp[, 2], labels = rownames(data_acp))
+abline(h = 0, v = 0)
+```
+L'observation de ce graphique du nuage des individus, nous permet de déterminer trois groupes d'années :
+
+- Les années 1990 :
+Ce groupe nous permet d'observer un grand nombre d'emploi en France et légèrement plus dans les régions peuplées.
+
+- Les années 2000 :
+Ce groupe nous permet d'observer un faible nombre d'emploi en France et encore moins dans les regions peuplées.
+
+- Les années 2010 : 
+Ce groupe nous permet d'observer un faible nombre d'emploi en France mais plus d'emplois dans les régions peuplées.
