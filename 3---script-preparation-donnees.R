@@ -13,9 +13,9 @@ onlyReg <- function(table,prob){
 }
 
 # region all
-bfgp <- read.csv("CSV/E-T.csv", sep = ";", header = T, row.name = 1)
-rotate <- apply(t(bfgp),2,rev)
-write.csv2(onlyReg(rotate), file = 'CSV/generated/reg-e-t-format.csv')
+#bfgp <- read.csv("CSV/E-T.csv", sep = ";", header = T, row.name = 1)
+#rotate <- apply(t(bfgp),2,rev)
+#write.csv2(onlyReg(rotate), file = 'CSV/generated/reg-e-t-format.csv')
 
 #
 # region men
@@ -29,9 +29,9 @@ write.csv2(onlyReg(rotate), file = 'CSV/generated/reg-e-t-format.csv')
 #write.csv2(onlyReg(rotate), file = 'CSV/generated/reg-f-t-format.csv')
 
 # department all
-bfgp <- read.csv("CSV/E-T.csv", sep = ";", header = T, row.name = 1)
-rotate <- apply(t(bfgp),2,rev)
-write.csv2(onlyDep(rotate), file = 'CSV/generated/dep-e-t-format.csv')
+#bfgp <- read.csv("CSV/E-T.csv", sep = ";", header = T, row.name = 1)
+#rotate <- apply(t(bfgp),2,rev)
+#write.csv2(onlyDep(rotate), file = 'CSV/generated/dep-e-t-format.csv')
 #
 # department men
 #bfgp <- read.csv("CSV/H-T.csv", sep = ";", header = T, row.name = 1)
@@ -44,6 +44,21 @@ write.csv2(onlyDep(rotate), file = 'CSV/generated/dep-e-t-format.csv')
 #write.csv2(onlyDep(rotate), file = 'CSV/generated/dep-f-t-format.csv')
 
 # all
-bfgp <- read.csv("CSV/F&H-T.csv", sep = ";", header = T, row.name = 1)
+#bfgp <- read.csv("CSV/F&H-T.csv", sep = ";", header = T, row.name = 1)
+#rotate <- apply(t(bfgp),2,rev)
+#write.csv2(onlyReg(rotate), file = 'CSV/generated/f&h-t-format.csv')
+
+# Year / Activity
+bfgp <- read.csv("CSV/Année-Secteur.csv", sep = ";", header = T, row.name = 1)
 rotate <- apply(t(bfgp),2,rev)
-write.csv2(onlyReg(rotate), file = 'CSV/generated/f&h-t-format.csv')
+write.csv2(rotate, file = 'CSV/generated/year-activity-format.csv')
+
+# Year / Activity / Men
+bfgp <- read.csv("CSV/Année-Secteur-Homme.csv", sep = ";", header = T, row.name = 1)
+rotate <- apply(t(bfgp),2,rev)
+write.csv2(rotate, file = 'CSV/generated/year-activity-men-format.csv')
+
+# Year / Activity / Women
+bfgp <- read.csv("CSV/Année-Secteur-Femme.csv", sep = ";", header = T, row.name = 1)
+rotate <- apply(t(bfgp),2,rev)
+write.csv2(rotate, file = 'CSV/generated/year-activity-women-format.csv')
