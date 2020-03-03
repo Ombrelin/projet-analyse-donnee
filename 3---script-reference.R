@@ -4,7 +4,7 @@
 #                                  #
 #==================================#
 
-x_matrix <- read.csv("data.csv", header = T, sep = ";", row.names = 1); # parse csv file (with ; separator) into matrix
+x_matrix <- read.csv("petrole.csv", header = T, sep = ";", row.names = 1); # parse csv file (with ; separator) into matrix
 
 #==================================#
 #                                  #
@@ -14,7 +14,6 @@ x_matrix <- read.csv("data.csv", header = T, sep = ";", row.names = 1); # parse 
 
 message("Summary")
 summary(x_matrix); # summary
-
 
 
 message("Covariance")
@@ -52,13 +51,29 @@ dev.off(); # end printing
 # Composantes principales
 data_acp <- centree_reduite %*% vecteursPropres;
 
-composante_principale_1 <- data_acp[, 1];
-composante_principale_2 <- data_acp[, 2];
+message("Vecteurs propres")
+print(vecteursPropres);
+message("Valeurs propres")
+print(valeursPropres);
+
+composante_principale_1 <- data_acp[1];
+composante_principale_2 <- data_acp[2];
+
+totalInfo <- sum(valeursPropres, na.rm = FALSE);
+qte <- (valeursPropres[1] + valeursPropres[2]) / totalInfo;
+message("Quantité d'information avec deux composantes : ", toString(qte * 100),"%");
+
+if (qte < 0.8) {
+  composante_principale_3 <- data_acp[, 3]
+  qte <- qte + valeursPropres[3];
+  message("Ajout d'une troisième composante pour améliorer la quantité d'information : ", toString(qte))
+}
+
 
 # Cercle de correlation
 # Calcule de la correlation entre chaque variable et les composantes principales
-cor1 <- cor(composante_principale_1,centree_reduite);
-cor2 <- cor(composante_principale_2,centree_reduite);
+cor1 <- cor(composante_principale_1, centree_reduite);
+cor2 <- cor(composante_principale_2, centree_reduite);
 png(filename = "cercle_de_correlation.png"); # start printing plot to png image
 plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
