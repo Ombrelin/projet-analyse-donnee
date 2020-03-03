@@ -4,7 +4,7 @@
 #                                  #
 #==================================#
 
-x_matrix <- read.csv("data.csv", header = T, sep = ";", row.names = 1); # parse csv file (with ; separator) into matrix
+x_matrix <- read.csv("petrole.csv", header = T, sep = ";", row.names = 1); # parse csv file (with ; separator) into matrix
 
 #==================================#
 #                                  #
