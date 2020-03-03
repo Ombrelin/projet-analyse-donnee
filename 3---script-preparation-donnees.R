@@ -52,3 +52,13 @@ onlyReg <- function(table,prob){
 bfgp <- read.csv("CSV/Année-Secteur.csv", sep = ";", header = T, row.name = 1)
 rotate <- apply(t(bfgp),2,rev)
 write.csv2(rotate, file = 'CSV/generated/year-activity-format.csv')
+
+# Year / Activity / Men
+bfgp <- read.csv("CSV/Année-Secteur-Homme.csv", sep = ";", header = T, row.name = 1)
+rotate <- apply(t(bfgp),2,rev)
+write.csv2(rotate, file = 'CSV/generated/year-activity-men-format.csv')
+
+# Year / Activity / Women
+bfgp <- read.csv("CSV/Année-Secteur-Femme.csv", sep = ";", header = T, row.name = 1)
+rotate <- apply(t(bfgp),2,rev)
+write.csv2(rotate, file = 'CSV/generated/year-activity-women-format.csv')
