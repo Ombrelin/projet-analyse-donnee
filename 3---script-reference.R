@@ -56,8 +56,8 @@ print(vecteursPropres);
 message("Valeurs propres")
 print(valeursPropres);
 
-composante_principale_1 <- data_acp[1];
-composante_principale_2 <- data_acp[2];
+composante_principale_1 <- data_acp[,1];
+composante_principale_2 <- data_acp[,2];
 
 totalInfo <- sum(valeursPropres, na.rm = FALSE);
 qte <- (valeursPropres[1] + valeursPropres[2]) / totalInfo;
@@ -72,8 +72,8 @@ if (qte < 0.8) {
 
 # Cercle de correlation
 # Calcule de la correlation entre chaque variable et les composantes principales
-cor1 <- cor(composante_principale_1, centree_reduite);
-cor2 <- cor(composante_principale_2, centree_reduite);
+cor1 <- cor(composante_principale_1,centree_reduite);
+cor2 <- cor(composante_principale_2,centree_reduite);
 png(filename = "cercle_de_correlation.png"); # start printing plot to png image
 plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
