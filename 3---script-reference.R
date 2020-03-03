@@ -16,7 +16,6 @@ message("Summary")
 summary(x_matrix); # summary
 
 
-
 message("Covariance")
 print(cov(x_matrix)); # covariance
 
@@ -52,8 +51,24 @@ dev.off(); # end printing
 # Composantes principales
 data_acp <- centree_reduite %*% vecteursPropres;
 
-composante_principale_1 <- data_acp[, 1];
-composante_principale_2 <- data_acp[, 2];
+message("Vecteurs propres")
+print(vecteursPropres);
+message("Valeurs propres")
+print(valeursPropres);
+
+composante_principale_1 <- data_acp[,1];
+composante_principale_2 <- data_acp[,2];
+
+totalInfo <- sum(valeursPropres, na.rm = FALSE);
+qte <- (valeursPropres[1] + valeursPropres[2]) / totalInfo;
+message("Quantité d'information avec deux composantes : ", toString(qte * 100),"%");
+
+if (qte < 0.8) {
+  composante_principale_3 <- data_acp[, 3]
+  qte <- qte + valeursPropres[3];
+  message("Ajout d'une troisième composante pour améliorer la quantité d'information : ", toString(qte))
+}
+
 
 # Cercle de correlation
 # Calcule de la correlation entre chaque variable et les composantes principales
