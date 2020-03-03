@@ -131,8 +131,21 @@ if(troisComposantes){
 
 ## Graphe 2D
 ```{r}
+# Graphe 1 - 2
 plot(data_acp[, 1], data_acp[, 2])
 text(data_acp[, 1], data_acp[, 2], labels = rownames(data_acp))
 abline(h = 0, v = 0)
+
+if(troisComposantes){
+  # Graphe 3 - 1
+  plot(data_acp[, 1], data_acp[, 3])
+  text(data_acp[, 1], data_acp[, 3], labels = rownames(data_acp))
+  abline(h = 0, v = 0)
+
+  # Graphe 3 - 2
+  plot(data_acp[, 3], data_acp[, 2])
+  text(data_acp[, 3], data_acp[, 2], labels = rownames(data_acp))
+  abline(h = 0, v = 0)
+
+}
 ```
-L'observation de ce graphique du nuage des individus, nous permet de déterminer trois
