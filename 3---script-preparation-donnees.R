@@ -49,16 +49,20 @@ onlyReg <- function(table,prob){
 #write.csv2(onlyReg(rotate), file = 'CSV/generated/f&h-t-format.csv')
 
 # Year / Activity
-bfgp <- read.csv("CSV/Année-Secteur.csv", sep = ";", header = T, row.name = 1)
-rotate <- apply(t(bfgp),2,rev)
-write.csv2(rotate, file = 'CSV/generated/year-activity-format.csv')
+#bfgp <- read.csv("CSV/Année-Secteur.csv", sep = ";", header = T, row.name = 1)
+#rotate <- apply(t(bfgp),2,rev)
+#write.csv2(rotate, file = 'CSV/generated/year-activity-format.csv')
 
 # Year / Activity / Men
-bfgp <- read.csv("CSV/Année-Secteur-Homme.csv", sep = ";", header = T, row.name = 1)
-rotate <- apply(t(bfgp),2,rev)
-write.csv2(rotate, file = 'CSV/generated/year-activity-men-format.csv')
+#bfgp <- read.csv("CSV/Année-Secteur-Homme.csv", sep = ";", header = T, row.name = 1)
+#rotate <- apply(t(bfgp),2,rev)
+#write.csv2(rotate, file = 'CSV/generated/year-activity-men-format.csv')
 
 # Year / Activity / Women
-bfgp <- read.csv("CSV/Année-Secteur-Femme.csv", sep = ";", header = T, row.name = 1)
+#bfgp <- read.csv("CSV/Année-Secteur-Femme.csv", sep = ";", header = T, row.name = 1)
+#rotate <- apply(t(bfgp),2,rev)
+#write.csv2(rotate, file = 'CSV/generated/year-activity-women-format.csv')
+
+bfgp <- read.csv("CSV/Annee-4_best_industrie.csv", sep = ";", header = T, row.name = 1)
 rotate <- apply(t(bfgp),2,rev)
-write.csv2(rotate, file = 'CSV/generated/year-activity-women-format.csv')
+write.csv2(rotate, file = 'CSV/generated/year-4-best-industry-men-women-format.csv')

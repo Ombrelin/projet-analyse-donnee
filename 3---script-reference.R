@@ -67,6 +67,10 @@ if (qte < 0.8) {
   composante_principale_3 <- data_acp[, 3]
   qte <- qte + valeursPropres[3];
   message("Ajout d'une troisième composante pour améliorer la quantité d'information : ", toString(qte))
+  troisComposantes <- true;
+} else {
+  message("On ne séléctionne que les deux première composantes principales car elles contiennent à elles seules plus de 80% des informations");
+  troisComposantes <- false;
 }
 
 
@@ -79,11 +83,6 @@ plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
 text(cor1, cor2, labels = colnames(data_acp))
 dev.off(); # end printing
-
-# Graphe +/-
-
-tableauplusmoins <- cbind(composante_principale_1, composante_principale_2);
-tableauplusmoins;
 
 # Graphe 2D
 png(filename = "graphe2D.png"); # start printing plot to png image

@@ -1,11 +1,11 @@
 ---
-title: "3-Rapport-Reference"
+title: "3-Rapport-Secteurs-Activite"
 output: word_document
 ---
 
 # Lecture des données
 ```{r}
-x_matrix <- read.csv("petrole.csv", header = T, sep = ";", row.names = 1)
+x_matrix <- read.csv("csv/generated/year-activity-format.csv", header = T, sep = ";", row.names = 1)
 ```
 ## Nombre de colonne
 ```{r}
@@ -127,6 +127,12 @@ if(troisComposantes){
 
 ```
 
+Dans un premier temps on peut dire que la plupart des variable sont proche du cercle, elles sont ainsi bien représentées par l'ACP.
+On observe que les secteur de l'industrie est fortement négativement corrélé avec la composante principale 1 tandis que que les deux secteurs du tertiaire lui sont fortement corrélés. De plus, la construction lui est également assez correlée, alors que l'agriculture lui est légèrement négativement correlée.
+
+On peut donc interpréter la composante princiale 1 comme le fait d'être un secteur qui fournit un service plus qu'un secteur qui manufacture des produits.
+
+Malheureseument, nous n'avons pu déterminer d'interprétation satisfaisante pour la composante principales 2.
 
 ## Graphe 2D
 ```{r}
@@ -148,3 +154,5 @@ if(troisComposantes){
 
 }
 ```
+On observe que plus le temps passe, plus les valeurs de la composante principale 1 sont élevées. On peut donc en conclure que l'emploi dans les secteurs d'activités lié à la production industrielle à baissé entre les années 1989 et 2018 au profit des secteurs de service.
+

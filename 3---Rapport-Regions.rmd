@@ -123,3 +123,5 @@ Ce groupe nous permet d'observer un faible nombre d'emploi en France et encore m
 
 - Les années 2010 : 
 Ce groupe nous permet d'observer un faible nombre d'emploi en France mais plus d'emplois dans les régions peuplées.
+
+Pour aller plus loin, il pourrait être de pertinent de mettre les régions sur un pied d'égalité en terme de population en exrpimant les données en entrée en tant que pourcentage de la population active. Cela pourrait éventuellement permettre d'affiner l'analyse.
