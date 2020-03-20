@@ -36,7 +36,7 @@ cov(x_matrix[,1:2])
 var(x_matrix[,1:2]);
 ```
 
-## Correlation (pour uniquement 2 colonnes)
+## Corrélation (pour uniquement 2 colonnes)
 ```{r}
 cor(x_matrix[,1:2])
 ```
@@ -60,7 +60,7 @@ cov(centree_reduite[,1:2])
 var(centree_reduite[,1:2]);
 ```
 
-## Correlation (pour uniquement 2 colonnes)
+## Corrélation (pour uniquement 2 colonnes)
 ```{r}
 cor(centree_reduite[,1:2])
 ```
@@ -101,25 +101,25 @@ if (qte < 0.8) {
 
 ```
 
-## Cercle de correlation
-Calcule de la correlation entre chaque variable et les composantes principales
+## Cercle de Corrélation
+Calcule de la Corrélation entre chaque variable et les composantes principales
 ```{r}
 cor1 <- cor(composante_principale_1,centree_reduite);
 cor2 <- cor(composante_principale_2,centree_reduite);
 
-# Correlation 1 - 2
+# Corrélation 1 - 2
 plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
 text(cor1, cor2, labels = colnames(x_matrix))
 
 if(troisComposantes){
   cor3 <- cor(composante_principale_3, centree_reduite);
-  # Correlation 3 - 1
+  # Corrélation 3 - 1
   plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
   abline(h = 0, v = 0)
   text(cor1, cor2, labels = colnames(x_matrix))
 
-  # Correlation 3 - 2
+  # Corrélation 3 - 2
   plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
   abline(h = 0, v = 0)
   text(cor1, cor2, labels = colnames(x_matrix))

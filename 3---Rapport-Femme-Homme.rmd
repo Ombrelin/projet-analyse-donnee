@@ -40,7 +40,7 @@ cov(x_matrix[,1:2])
 var(x_matrix[,1:2]);
 ```
 
-## Correlation (pour uniquement 2 colonnes)
+## Corrélation (pour uniquement 2 colonnes)
 ```{r}
 cor(x_matrix[,1:2])
 ```
@@ -64,7 +64,7 @@ cov(centree_reduite[,1:2])
 var(centree_reduite[,1:2]);
 ```
 
-## Correlation (pour uniquement 2 colonnes)
+## Corrélation (pour uniquement 2 colonnes)
 ```{r}
 cor(centree_reduite[,1:2])
 ```
@@ -90,8 +90,8 @@ composante_principale_1 <- data_acp[, 1];
 composante_principale_2 <- data_acp[, 2];
 ```
 
-## Cercle de correlation
-Calcule de la correlation entre chaque variable et les composantes principales
+## Cercle de Corrélation
+Calcule de la Corrélation entre chaque variable et les composantes principales
 ```{r}
 cor1 <- cor(composante_principale_1,centree_reduite);
 cor2 <- cor(composante_principale_2,centree_reduite);
