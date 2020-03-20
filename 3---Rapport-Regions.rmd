@@ -95,17 +95,17 @@ plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
 abline(h = 0, v = 0)
 text(cor1, cor2, labels = colnames(x_matrix))
 ```
-Dans un premier temps on peut dire que la plupart des variable sont proche du cercle, elles sont ainsi bien représentées par l'ACP.
+
+Dans un premier temps on peut dire que la plupart des variable sont proches du cercle et ainsi bien représentées par l'ACP.
 On remarque que toutes la variables sont fortement corrélées négativement avec la composante principale 1.
 
-Etant donné que l'on a qu'un seul groupe de variable pour la composante principale 1 on peut l'interpréter comme le nombre de personne employées.
+Étant donné que l'on a qu'un seul groupe de variable pour la composante principale 1 on peut l'interpréter comme le nombre de personnes employées.
 
 De plus, on a deux groupes de variables : 
 - Le premier (*Occitanie*, *Corse*, *DOM*, *Cote d'Azure*, *Provence*, *Auvergne - Rhones Alpes*, *Nouvelle Aquitaine*, *Ile de France*, *Bretagne*, *Normandie*) positivement correlé à la composante principale 2.
 - Le second (*Haut de France*, *Bourgogne - Franche Comté*, *Grand-Est*, *Centre Val de Loire*) négativement corrélé avec la composante principale 2.
 
 On peut donc interpréter la composante principale 2 comme **la population de la région**
-
 
 ## Graphe 2D
 ```{r}

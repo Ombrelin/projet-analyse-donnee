@@ -100,12 +100,12 @@ abline(h = 0, v = 0)
 text(cor1, cor2, labels = colnames(x_matrix))
 ```
 
-Dans un premier temps on peut dire que la plupart des variable étant proche du cercle, elles sont bien représentées par l'ACP.
+Dans un premier temps on peut dire que la plupart des variable sont proches du cercle et ainsi bien représentées par l'ACP.
 On observe que nos deux variables sont fortement corrélées à notre première composante principale.
-Cependant, on peut également constater que la variable *homme* est négativement corrélée à la seconde composante princpale, et que la variable *femme* est quand à elle légerement corrélée à cette dernière.
+Cependant, on peut également constater que la variable *homme* est négativement corrélée à la seconde composante principale, et que la variable *femme* est quand à elle légerement corrélée à cette dernière.
 
-Etant donné que la quantité d'information portée par la première composante principale est bien supérieure à celle portée par la seconde, on peut dire que la première composante principale peut être analysée comme **La quantité de personnes employés cette année**
-De plus, dans une moindre mesure, la seconde composante principale peut être analysée comme **La quantité de femmes employées cette année**.
+Étant donné que la quantité d'information portée par la première composante principale est bien supérieure à celle portée par la seconde, on peut dire que la première composante principale peut être analysée comme **La quantité de personnes employés cette année**
+De plus, la seconde composante principale peut être analysée comme **La quantité de femmes employées cette année**.
 
 Comme on pouvait s'y attendre, étant donnée la faible quantité de variables dans cette analyse, cela ne nous a pas permis de synthétiser des variables.
 

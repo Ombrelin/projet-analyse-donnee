@@ -127,12 +127,13 @@ if(troisComposantes){
 
 ```
 
-Dans un premier temps on peut dire que la plupart des variable sont proche du cercle, elles sont ainsi bien représentées par l'ACP.
-On observe que les secteur de l'industrie est fortement négativement corrélé avec la composante principale 1 tandis que que les deux secteurs du tertiaire lui sont fortement corrélés. De plus, la construction lui est également assez correlée, alors que l'agriculture lui est légèrement négativement correlée.
+Dans un premier temps on peut dire que la plupart des variable sont proches du cercle et ainsi bien représentées par l'ACP.
 
-On peut donc interpréter la composante princiale 1 comme le fait d'être un secteur qui fournit un service plus qu'un secteur qui manufacture des produits.
+On observe que les secteur de l'industrie sont fortement négativement corrélés avec la composante principale 1 tandis que que les deux secteurs du tertiaire lui sont fortement corrélés. De plus, le secteur de la construction lui est également assez correlé, alors que le secteur de l'agriculture lui est légèrement négativement correlé.
 
-Malheureseument, nous n'avons pu déterminer d'interprétation satisfaisante pour la composante principales 2.
+On peut donc interpréter la composante principale 1 comme le fait d'être un secteur qui fournit un service plutôt qu'un secteur qui manufacture des produits.
+
+Malheureseument, nous n'avons pas pu déterminer d'interprétation satisfaisante pour la composante principales 2.
 
 ## Graphe 2D
 ```{r}
