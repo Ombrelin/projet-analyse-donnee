@@ -87,15 +87,15 @@ composante_principale_2 <- data_acp[, 2];
 totalInfo <- sum(valeursPropres, na.rm = FALSE);
 qte <- (valeursPropres[1] + valeursPropres[2]) / totalInfo;
 message("Quantité d'information avec deux composantes : ", toString(qte * 100),"%");
-troisComposantes;
+troisComposantes <- FALSE;
 if (qte < 0.8) {
   composante_principale_3 <- data_acp[, 3]
   qte <- qte + valeursPropres[3];
   message("Ajout d'une troisième composante pour améliorer la quantité d'information : ", toString(qte))
-  troisComposantes <- true;
+  troisComposantes <- TRUE;
 } else {
   message("On ne séléctionne que les deux première composantes principales car elles contiennent à elles seules plus de 80% des informations");
-  troisComposantes <- false;
+  troisComposantes <- FALSE;
 }
 
 
