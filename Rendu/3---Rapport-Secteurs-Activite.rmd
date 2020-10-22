@@ -1,0 +1,159 @@
+---
+title: "3-Rapport-Secteurs-Activite"
+output: word_document
+---
+
+# Lecture des données
+```{r}
+x_matrix <- read.csv("csv/generated/year-activity-format.csv", header = T, sep = ";", row.names = 1)
+```
+## Nombre de colonne
+```{r}
+ncol(x_matrix)
+```
+## Nombre de ligne
+```{r}
+nrow(x_matrix)
+```
+## Affichage des 10 premières lignes (pour uniquement 2 colonnes)
+
+```{r}
+x_matrix[1:10,1:2]
+```
+
+# Informations basiques
+## Résumé (pour uniquement 2 colonnes)
+```{r}
+summary(x_matrix[,1:2])
+```
+## Covariance (pour uniquement 2 colonnes)
+```{r}
+cov(x_matrix[,1:2])
+```
+
+## Variance (pour uniquement 2 colonnes)
+```{r}
+var(x_matrix[,1:2]);
+```
+
+## Corrélation (pour uniquement 2 colonnes)
+```{r}
+cor(x_matrix[,1:2])
+```
+
+# Données centrées réduites
+
+```{r}
+centree_reduite <- scale(x_matrix, center = T, scale = T);
+```
+
+```{r}
+summary(centree_reduite[,1:2])
+```
+## Covariance (pour uniquement 2 colonnes)
+```{r}
+cov(centree_reduite[,1:2])
+```
+
+## Variance (pour uniquement 2 colonnes)
+```{r}
+var(centree_reduite[,1:2]);
+```
+
+## Corrélation (pour uniquement 2 colonnes)
+```{r}
+cor(centree_reduite[,1:2])
+```
+
+# Analyse en composante principale
+
+## Valeurs propres
+```{r}
+propres <- eigen(cor(centree_reduite));
+valeursPropres <- propres$values;
+vecteursPropres <- propres$vectors;
+```
+
+## Graphique des valeurs propres (éboulis et coude)
+```{r}
+plot(1:length(valeursPropres), valeursPropres, type = "b");
+```
+
+## Composantes principales
+```{r}
+data_acp <- centree_reduite %*% vecteursPropres;
+composante_principale_1 <- data_acp[, 1];
+composante_principale_2 <- data_acp[, 2];
+totalInfo <- sum(valeursPropres, na.rm = FALSE);
+qte <- (valeursPropres[1] + valeursPropres[2]) / totalInfo;
+message("Quantité d'information avec deux composantes : ", toString(qte * 100),"%");
+troisComposantes <- FALSE;
+if (qte < 0.8) {
+  composante_principale_3 <- data_acp[, 3]
+  qte <- qte + valeursPropres[3];
+  message("Ajout d'une troisième composante pour améliorer la quantité d'information : ", toString(qte))
+  troisComposantes <- TRUE;
+} else {
+  message("On ne séléctionne que les deux première composantes principales car elles contiennent à elles seules plus de 80% des informations");
+  troisComposantes <- FALSE;
+}
+
+
+```
+
+## Cercle de corrélation
+Calcule de la correlation entre chaque variable et les composantes principales
+```{r}
+cor1 <- cor(composante_principale_1,centree_reduite);
+cor2 <- cor(composante_principale_2,centree_reduite);
+
+# Correlation 1 - 2
+plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
+abline(h = 0, v = 0)
+text(cor1, cor2, labels = colnames(x_matrix))
+
+if(troisComposantes){
+  cor3 <- cor(composante_principale_3, centree_reduite);
+  # Correlation 3 - 1
+  plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
+  abline(h = 0, v = 0)
+  text(cor1, cor2, labels = colnames(x_matrix))
+
+  # Correlation 3 - 2
+  plot(cor1, cor2, xlim = c(-1, +1), ylim = c(-1, +1))
+  abline(h = 0, v = 0)
+  text(cor1, cor2, labels = colnames(x_matrix))
+}
+
+```
+
+Dans un premier temps on peut dire que la plupart des variable sont proches du cercle et ainsi bien représentées par l'ACP.
+
+On observe que les secteur de l'industrie sont fortement négativement corrélés avec la composante principale 1 tandis que que les deux secteurs du tertiaire lui sont fortement corrélés. De plus, le secteur de la construction lui est également assez correlé, alors que le secteur de l'agriculture lui est légèrement négativement correlé.
+
+On peut donc interpréter la composante principale 1 comme le fait d'être un secteur qui fournit un service plutôt qu'un secteur qui manufacture des produits.
+
+Malheureseument, nous n'avons pas pu déterminer d'interprétation satisfaisante pour la composante principales 2.
+
+## Graphe 2D
+```{r}
+# Graphe 1 - 2
+plot(data_acp[, 1], data_acp[, 2])
+text(data_acp[, 1], data_acp[, 2], labels = rownames(data_acp))
+abline(h = 0, v = 0)
+
+if(troisComposantes){
+  # Graphe 3 - 1
+  plot(data_acp[, 1], data_acp[, 3])
+  text(data_acp[, 1], data_acp[, 3], labels = rownames(data_acp))
+  abline(h = 0, v = 0)
+
+  # Graphe 3 - 2
+  plot(data_acp[, 3], data_acp[, 2])
+  text(data_acp[, 3], data_acp[, 2], labels = rownames(data_acp))
+  abline(h = 0, v = 0)
+
+}
+```
+On observe que plus le temps passe, plus les valeurs de la composante principale 1 sont élevées. On peut donc en conclure que l'emploi dans les secteurs d'activités lié à la production industrielle à baissé entre les années 1989 et 2018 au profit des secteurs de service.
+
