@@ -1053,3 +1053,5 @@ if (troisComposantes){
 ```
 
 On observe que plus le temps passe, plus les valeurs de la composante principale 1 sont élevées. On peut donc en conclure que l’emploi dans les secteurs d’activités lié à la production industrielle a baissé entre les années 1989 et 2018 au profit des secteurs de service.
+
+
