@@ -309,7 +309,7 @@ if (qte < 0.8) {
 }
 ```
 
-## On ne séléctionne que les deux première composantes principales car elles
+On ne séléctionne que les deux première composantes principales car elles
 contiennent à elles seules plus de 80% des informations
 
 #### Cercle de Corrélation
@@ -1004,6 +1004,7 @@ if (qte < 0.8) {
     troisComposantes <- FALSE;
 }
 ```
+
 On ne séléctionne que les deux première composantes principales car elles
 contiennent à elles seules plus de 80% des informations
 
